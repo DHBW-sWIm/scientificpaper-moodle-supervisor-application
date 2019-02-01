@@ -1,0 +1,13 @@
+vendor/
+.vs/
+.php_cs.cache
+*.zip
+.DS_Store
+.classpath
+.project
+.settings
+.idea
+.metadata
+*.iml
+*.ipr
+
