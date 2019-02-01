@@ -1,0 +1,38 @@
+---
+addons:
+  firefox: "47.0.1"
+  postgresql: "9.3"
+before_install:
+  - "phpenv config-rm xdebug.ini"
+  - "nvm install 8.9"
+  - "nvm use 8.9"
+  - "cd ../.."
+  - "composer create-project -n --no-dev --prefer-dist moodlerooms/moodle-plugin-ci ci ^2"
+  - "export PATH=\"$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH\""
+branches:
+  only:
+    - master
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.npm
+env:
+  global:
+    - MOODLE_BRANCH=MOODLE_32_STABLE
+    - IGNORE_PATHS=mod/spsupapp/lib/**/*
+  matrix:
+    - DB=pgsql
+install:
+  - "moodle-plugin-ci install --plugin=${TRAVIS_BUILD_DIR}/source"
+language: php
+php:
+  - 7.1
+script:
+  - "moodle-plugin-ci phplint"
+  #- "moodle-plugin-ci phpmd"
+  - "moodle-plugin-ci validate"
+  - "moodle-plugin-ci savepoints"
+  - "moodle-plugin-ci grunt"
+  - "moodle-plugin-ci phpunit"
+  - "moodle-plugin-ci behat"
+sudo: false
