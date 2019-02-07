@@ -12,7 +12,7 @@ global $SESSION;
 
 echo $OUTPUT->heading('Your application successfully submitted!');
 
-$table = 'spsupapp_applicant';
+$table = 'spsupman_applicant';
 
 $supervisors = $DB->get_records($table);
 $table = new html_table();

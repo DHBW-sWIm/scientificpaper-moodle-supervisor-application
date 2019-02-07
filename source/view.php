@@ -8,7 +8,7 @@ include(__DIR__ . '/view_init.php');
 
 // @todo Replace the following lines with you own code.
 global $SESSION;
-$table = 'spsupapp_applicant';
+$table = 'spsupman_applicant';
 
 echo $OUTPUT->heading('Allgemeiner Betreuerpool');
 
