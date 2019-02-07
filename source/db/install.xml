@@ -50,7 +50,7 @@
                 <FIELD NAME="topictype" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"
                        COMMENT="Betreut IT, BWL. Wirtschaftsinformatik"/>
                 <FIELD NAME="supportperiod" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"
-                       COMMENT="Betreunungszeitraum, fr�h oder sp�t"/>
+                       COMMENT="Betreunungszeitraum, frueh oder spaet"/>
                 <FIELD NAME="bachelor" TYPE="binary" NOTNULL="true" SEQUENCE="false"
                        COMMENT="Betreuung von Bachlorarbeiten, ja , nein"/>
                 <FIELD NAME="peryear" TYPE="int" LENGTH="5" NOTNULL="true" SEQUENCE="false"

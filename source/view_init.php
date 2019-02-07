@@ -20,8 +20,8 @@ if ($id) {
 require_login($course, true, $cm);
 
 $event = \mod_spsupapp\event\course_module_viewed::create(array(
-    'objectid' => $PAGE->cm->instance,
-    'context' => $PAGE->context,
+        'objectid' => $PAGE->cm->instance,
+        'context' => $PAGE->context,
 ));
 $event->add_record_snapshot('course', $PAGE->course);
 $event->add_record_snapshot($PAGE->cm->modname, $spsupapp);

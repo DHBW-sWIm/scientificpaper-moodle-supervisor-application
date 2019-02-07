@@ -15,83 +15,78 @@ class application_form extends moodleform {
         $mform = $this->_form; // Don't forget the underscore!
 
         #Start of the Supervisor Promotion Form
-        #Header
-        $mform->addElement('header', 'header', 'Anmeldungsformular Wissenschaftlicher Betreuer:');
-
+        $mform->addElement('header', 'header1', 'Allgemeines');
         #NAME
-        $mform->addElement('text', 'lastname', 'Name*'); // Add elements to your form
+        $mform->addElement('text', 'lastname', 'Name'); // Add elements to your form
         $mform->setType('lastname', PARAM_NOTAGS);                   //Set type of element
-        $mform->setDefault('lastname', 'Hans');     //Default value
-
+        $mform->disabledIf('lastname', 'checkbox_edit', 'notchecked');
         #VORNAME
-        $mform->addElement('text', 'firstname', 'Vorname*'); // Add elements to your form
+        $mform->addElement('text', 'firstname', 'Vorname'); // Add elements to your form
         $mform->setType('firstname', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('prename', '');     //Default value
-
+        $mform->disabledIf('firstname', 'checkbox_edit', 'notchecked');
         #TITEL
-        $mform->addElement('text', 'titel', 'Titel'); // Add elements to your form
-        $mform->setType('titel', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('name', '');     //Default value
-
+        $mform->addElement('text', 'title', 'Titel'); // Add elements to your form
+        $mform->setType('title', PARAM_NOTAGS);                   //Set type of element
+        $mform->disabledIf('title', 'checkbox_edit', 'notchecked');
         #GESCHLECHT
-        $mform->addElement('select', 'gender', 'Geschlecht*', array('männlich', 'weiblich', 'divers'));
-
+        $mform->addElement('select', 'gender', 'Geschlecht', array('männlich', 'weiblich', 'divers'));
+        $mform->disabledIf('gender', 'checkbox_edit', 'notchecked');
         #GEBURTSDATUM
-        $mform->addElement('date_selector', 'date', 'Geburtsdatum');
-
+        $mform->addElement('date_selector', 'birthdate', 'Geburtsdatum');
+        $mform->disabledIf('birthdate', 'checkbox_edit', 'notchecked');
         #space ---------------------------------------------------------------------------------
         $mform->addElement('static', 'label1', ' ', ' ');
-
         #SPRACHEN
-        $mform->addElement('text', 'language', 'Sprachen*'); // Add elements to your form
-        $mform->setType('language', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('sprache', '');     //Default value
-
+        $mform->addElement('text', 'languages', 'Sprachen'); // Add elements to your form
+        $mform->setType('languages', PARAM_NOTAGS);                   //Set type of element
+        $mform->disabledIf('language', 'checkbox_edit', 'notchecked');
         #space ---------------------------------------------------------------------------------
         $mform->addElement('static', 'label1', ' ', ' ');
-
         #FIRMA
-        $mform->addElement('text', 'company', 'Firma'); // Add elements to your form
-        $mform->setType('firma', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('firma', '');     //Default value
-
+        $mform->addElement('text', 'company', 'Unternehmen'); // Add elements to your form
+        $mform->setType('company', PARAM_NOTAGS);                   //Set type of element
+        $mform->disabledIf('company', 'checkbox_edit', 'notchecked');
+        $mform->addElement('header', 'header2', 'Kontakt');
         #STRASSE / HAUSNUMMER
-        $mform->addElement('text', 'address', 'Strasse*'); // Add elements to your form
+        $mform->addElement('text', 'address', 'Strasse'); // Add elements to your form
         $mform->setType('address', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('strasse', '');     //Default value
-
+        $mform->disabledIf('address', 'checkbox_edit', 'notchecked');
+        $mform->addElement('static', 'label1', ' ', ' ');
         #ORT
-        $mform->addElement('text', 'city', 'Ort*'); // Add elements to your form
+        $mform->addElement('text', 'city', 'Ort'); // Add elements to your form
         $mform->setType('city', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('ort', '');     //Default value
-
+        $mform->disabledIf('city', 'checkbox_edit', 'notchecked');
         #PLZ
-        $mform->addElement('text', 'postalcode', 'PLZ*'); // Add elements to your form
+        $mform->addElement('text', 'postalcode', 'PLZ'); // Add elements to your form
         $mform->setType('postalcode', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('plz', '');     //Default value
-
+        $mform->disabledIf('postalcode', 'checkbox_edit', 'notchecked');
         #TELEFON
-        $mform->addElement('text', 'phone', 'Telefon*'); // Add elements to your form
+        $mform->addElement('text', 'phone', 'Telefon'); // Add elements to your form
         $mform->setType('phone', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('tel', '');     //Default value
-
+        $mform->disabledIf('phone', 'checkbox_edit', 'notchecked');
         #EMAIL
-        $mform->addElement('text', 'email', 'Email*'); // Add elements to your form
+        $mform->addElement('text', 'email', 'Email'); // Add elements to your form
         $mform->setType('email', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('email', '');     //Default value
+        $mform->disabledIf('email', 'checkbox_edit', 'notchecked');
+        #space ---------------------------------------------------------------------------------
+
+        $mform->addElement('header', 'header5', 'Bankdaten');
+        #IBAN
+        $mform->addElement('text', 'iban', 'IBAN'); // Add elements to your form
+        $mform->setType('iban', PARAM_NOTAGS);                   //Set type of element
+        $mform->disabledIf('iban', 'checkbox_edit', 'notchecked');
 
         #space ---------------------------------------------------------------------------------
-        $mform->addElement('static', 'label1', ' ', ' ');
-
+        $mform->addElement('header', 'header3', 'Qualifikation');
         #AUSBILDUNG / STUDIUM
-        $mform->addElement('text', 'studium', 'Studium*'); // Add elements to your form
+        //fehlt noch in der Datenbank
+        $mform->addElement('text', 'studium', 'Studium'); // Add elements to your form
         $mform->setType('studium', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('studium', '');     //Default value
-
+        $mform->disabledIf('studium', 'checkbox_edit', 'notchecked');
         #FACHGEBIETE
         $mform->addElement('text', 'specialisation', 'Fachgebiete'); // Add elements to your form
         $mform->setType('specialisation', PARAM_NOTAGS);                   //Set type of element
-
+        $mform->disabledIf('specialisation', 'checkbox_edit', 'notchecked');
         #space ---------------------------------------------------------------------------------
         $mform->addElement('static', 'label1', ' ', ' ');
 
@@ -142,11 +137,6 @@ class application_form extends moodleform {
         #space ---------------------------------------------------------------------------------
         $mform->addElement('static', 'label1', ' ', ' ');
 
-        #IBAN
-        $mform->addElement('text', 'iban', 'IBAN*'); // Add elements to your form
-        $mform->setType('iban', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('iban', '');     //Default value
-
         #space ---------------------------------------------------------------------------------
         $mform->addElement('static', 'label1', ' ', ' ');
 
@@ -160,7 +150,6 @@ class application_form extends moodleform {
         #Abschicken
         $mform->addElement('submit', 'btnSubmit', 'Anmeldung abschicken');
         $mform->disabledIf('btnSubmit', 'checkbox_dsgvo', 'notchecked');
-
 
         //End of Form
 

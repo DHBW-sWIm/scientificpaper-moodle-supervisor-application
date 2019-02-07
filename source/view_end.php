@@ -24,7 +24,7 @@ foreach ($supervisors as $supervisor) {
     $vorname = $supervisor->firstname;
     $titel = $supervisor->title;
     $email = $supervisor->email;
-    $fachbereich = $supervisor->topictype;
+    $fachbereich = $supervisor->specialisation;
     //Link zum löschen des Verantwortlichen in foreach-Schleife setzen
     //Daten zuweisen an HTML-Tabelle
     $table->data[] = array($id, $name, $vorname, $titel, $email, $fachbereich);
