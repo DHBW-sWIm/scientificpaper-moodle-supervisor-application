@@ -4,15 +4,15 @@
        xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
     <TABLES>
-        <TABLE NAME="spsupapp" COMMENT="Default comment for spsupapp, please edit me">
+        <TABLE NAME="aaplptoto" COMMENT="Default comment for aaplptoto, please edit me">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
                 <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"
-                       COMMENT="Course spsupapp activity belongs to"/>
+                       COMMENT="Course aaplptoto activity belongs to"/>
                 <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"
                        COMMENT="name field for moodle instances"/>
                 <FIELD NAME="intro" TYPE="text" NOTNULL="true" SEQUENCE="false"
-                       COMMENT="General introduction of the spsupapp activity"/>
+                       COMMENT="General introduction of the aaplptoto activity"/>
                 <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="true" DEFAULT="0"
                        SEQUENCE="false" COMMENT="Format of the intro field (MOODLE, HTML, MARKDOWN...)"/>
                 <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
@@ -29,7 +29,7 @@
             </INDEXES>
         </TABLE>
 
-        <TABLE NAME="spsupapp_applicant" COMMENT="Default comment for the table, please edit me">
+        <TABLE NAME="aaplptoto_applicant" COMMENT="">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
                 <FIELD NAME="firstname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
@@ -63,7 +63,7 @@
                 <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
             </KEYS>
         </TABLE>
-        <TABLE NAME="spsupapp_supervisors" COMMENT="approved supervisors">
+        <TABLE NAME="aaplptoto_supervisors" COMMENT="approved supervisors">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
                 <FIELD NAME="firstname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
@@ -100,7 +100,7 @@
             </KEYS>
         </TABLE>
 
-        <TABLE NAME="spsupapp_acceptedby" COMMENT="Default comment for the table, please edit me">
+        <TABLE NAME="aaplptoto_acceptedby" COMMENT="">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
                 <FIELD NAME="managerid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -114,7 +114,7 @@
             </KEYS>
         </TABLE>
 
-        <TABLE NAME="spsupapp_favoritsupervisor" COMMENT="Default comment for the table, please edit me">
+        <TABLE NAME="aaplptoto_favoritsupervisor" COMMENT="Favoriten Tabelle eigentlich nicht nötig, nur als sicherheit noch da, kann ggf. gelöscht werden">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
                 <FIELD NAME="managerid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>

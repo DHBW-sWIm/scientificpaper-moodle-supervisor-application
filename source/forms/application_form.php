@@ -7,7 +7,7 @@ require_once("$CFG->libdir/formslib.php");
  * Date: 01.02.2019
  * Time: 18:47
  */
-class promotion_form extends moodleform {
+class application_form extends moodleform {
 
     public function definition() {
         global $CFG;
@@ -19,13 +19,13 @@ class promotion_form extends moodleform {
         $mform->addElement('header', 'header', 'Anmeldungsformular Wissenschaftlicher Betreuer:');
 
         #NAME
-        $mform->addElement('text', 'name', 'Name*'); // Add elements to your form
-        $mform->setType('name', PARAM_NOTAGS);                   //Set type of element
-        //$mform->setDefault('name', '');     //Default value
+        $mform->addElement('text', 'lastname', 'Name*'); // Add elements to your form
+        $mform->setType('lastname', PARAM_NOTAGS);                   //Set type of element
+        $mform->setDefault('lastname', 'Hans');     //Default value
 
         #VORNAME
-        $mform->addElement('text', 'prename', 'Vorname*'); // Add elements to your form
-        $mform->setType('prename', PARAM_NOTAGS);                   //Set type of element
+        $mform->addElement('text', 'firstname', 'Vorname*'); // Add elements to your form
+        $mform->setType('firstname', PARAM_NOTAGS);                   //Set type of element
         //$mform->setDefault('prename', '');     //Default value
 
         #TITEL
@@ -154,8 +154,13 @@ class promotion_form extends moodleform {
         $mform->addElement('checkbox', 'checkbox_dsgvo',
                 'Hiermit erkläre ich mich damit einverstanden, dass die von mir angegebenen personenbezogenen Daten durch die DHBW MANNHEIM gespeichert, verarbeitet und genutzt werden können.');
 
+        $mform->addElement('hidden', 'id');
+        $mform->setType('id', PARAM_INT);
+
         #Abschicken
         $mform->addElement('submit', 'btnSubmit', 'Anmeldung abschicken');
+        $mform->disabledIf('btnSubmit', 'checkbox_dsgvo', 'notchecked');
+
 
         //End of Form
 

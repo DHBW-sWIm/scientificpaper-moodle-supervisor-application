@@ -10,39 +10,29 @@ include(__DIR__ . '/view_init.php');
 
 global $SESSION;
 
-echo $OUTPUT->heading('Result');
+echo $OUTPUT->heading('Your application successfully submitted!');
 
-echo "Saved entries:" . "\n E-Mail: " . $SESSION->formdata->email . "\n Name: " . $SESSION->formdata->name;
+$table = 'spsupapp_applicant';
 
-// Implement form for user
-require_once(__DIR__ . '/forms/end_form.php');
-
-$mform = new end_form();
-
-$mform->render();
-
-//Form processing and displaying is done here
-if ($mform->is_cancelled()) {
-    //Handle form cancel operation, if cancel button is present on form
-} else if ($fromform = $mform->get_data()) {
-    //Handle form successful operation, if button is present on form
-
-    //Remove SESSION data for form
-    unset($SESSION->formdata);
-    // Redirect to the course main page.
-    $returnurl = new moodle_url('/mod/spsupapp/view.php', array('id' => $cm->id));
-    redirect($returnurl);
-} else {
-    // this branch is executed if the form is submitted but the data doesn't validate and the form should be redisplayed
-    // or on the first display of the form.
-
-    // Set default data (if any)
-    // Required for module not to crash as a course id is always needed
-    $formdata = array('id' => $id);
-    $mform->set_data($formdata);
-    //displays the form
-    $mform->display();
+$supervisors = $DB->get_records($table);
+$table = new html_table();
+$table->head = array('ID', 'Name', 'Vorname', 'Titel', 'Email', 'Fachbereich');
+//Für jeden Datensatz
+foreach ($supervisors as $supervisor) {
+    $id = $supervisor->id;
+    $name = $supervisor->lastname;
+    $vorname = $supervisor->firstname;
+    $titel = $supervisor->title;
+    $email = $supervisor->email;
+    $fachbereich = $supervisor->topictype;
+    //Link zum löschen des Verantwortlichen in foreach-Schleife setzen
+    //Daten zuweisen an HTML-Tabelle
+    $table->data[] = array($id, $name, $vorname, $titel, $email, $fachbereich);
 }
+echo html_writer::table($table);
+
+echo $OUTPUT->single_button(new moodle_url('/mod/spsupapp/view.php', array('id' => $cm->id)),
+        'Zurück', $attributes = null);
 
 // Finish the page.
 echo $OUTPUT->footer();
