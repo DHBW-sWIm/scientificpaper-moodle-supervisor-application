@@ -36,3 +36,8 @@ script:
   - "moodle-plugin-ci phpunit"
   - "moodle-plugin-ci behat"
 sudo: false
+
+notifications:
+  slack:
+    rooms:
+      - dhbw-moodle:AwYGrmNF9sNcQy0k0s5LGE8I#n-scientific-paper
